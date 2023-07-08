@@ -2,7 +2,9 @@
 const { google } = require("googleapis");
 const nodemailer = require("nodemailer");
 const oAuth2Client = require("./oauth");
+const dotenv = require("dotenv");
 
+dotenv.config();
 //declaring the email id for multiple use
 const GMAIL_ID = process.env.GMAIL_ID;
 
@@ -38,7 +40,7 @@ async function checkForNewEmails() {
 
     const res = await gmail.users.messages.list({
       userId: "me", //user's own mailbox.
-      q: "is:unread is:inbox after:2023/07/07",
+      q: "is:unread",
       maxResults: 1, // Only get unread messages
     });
 
@@ -62,9 +64,7 @@ async function checkForNewEmails() {
 
       //checking if any of the messages in the thread contain a reply.
       const isReply = thread.messages.some(
-        (m) =>
-          m.labelIds.includes("SENT") &&
-          m.from.emailAddress === process.env.GMAIL_ID
+        (m) => m.labelIds.includes("SENT") && m.from.emailAddress === GMAIL_ID
       );
 
       //if it is not replied beforehand
@@ -95,7 +95,7 @@ async function checkForNewEmails() {
         const response = await gmail.users.messages.list({
           userId: "me",
           maxResults: 1,
-          q: "in:inbox after:2023/07/07", // Only get messages from the inbox
+          q: "in:inbox ", // Only get messages from the inbox
         });
 
         //calling the API to get the list of labels associated with the user's mailbox.

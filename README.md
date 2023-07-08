@@ -1,8 +1,6 @@
-
 # Google mail Responder
 
-A Node.js based app that is able to respond to emails sent to your Gmail mailbox while you’re out on a vacation. 
-
+A Node.js based app that is able to respond to emails sent to your Gmail mailbox while you’re out on a vacation.
 
 ## Features
 
@@ -11,11 +9,9 @@ A Node.js based app that is able to respond to emails sent to your Gmail mailbox
 - The app adds a Label to the email and move the email to the label
 - The app repeats this sequence of steps 1-3 in random intervals of 45 to 120 seconds
 
-
 ## Tech Stack Backend
 
 **Server:** Node
-
 
 ## Run Locally
 
@@ -29,6 +25,13 @@ Go to the project directory
 
 ```bash
   cd my-project
+```
+
+You will also be needed to implement and configure the "Login with google" API for this
+for which documentation is given in the section below
+
+```bash
+  documention : Node.js quickstart
 ```
 
 Install dependencies
@@ -49,12 +52,15 @@ For dev purposes
 ```bash
   npm install nodemon
 ```
+
 after installing nodemon add the following to the scripts in package.json file
 
 ```bash
   "start": "nodemon ./src/index.js"
 ```
+
 Run dev in CLI
+
 ```bash
   node index.js
 ```
@@ -73,24 +79,22 @@ To run this project, you will need to add the following environment variables to
 
 `GMAIL_ID`
 
-To configure Environment Variables 
+To configure Environment Variables
 
 ```bash
   npm install dotenv
 ```
+
 ## Documentation
 
 [Gmail API](https://developers.google.com/gmail/api/guides)
 
+[Node.js quickstart](https://developers.google.com/gmail/api/quickstart/nodejs)
 
 ## License
 
-
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-
-
 
 ## Authors
 
 - [@coding-priest7](https://github.com/coding-priest7)
-
